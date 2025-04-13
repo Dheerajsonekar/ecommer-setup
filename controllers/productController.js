@@ -2,6 +2,11 @@
 
 const addProduct = (req, res) => {
     const { productName } = req.body;
+
+    // Log product data to the server console
+    console.log('Product added:', productName);
+
+    // Respond to the client
     res.send(`Product "${productName}" added successfully!`);
 };
 

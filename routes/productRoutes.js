@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'VIEW', 'product-form.html'));
 });
 
-// Handle form POST
+// Handle form POST using Axios
 router.post('/', addProduct);
 
 // Get product by ID

@@ -5,13 +5,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Product</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <h1>Add a New Product</h1>
-  <form action="/api/products" method="POST">
+  <form id="product-form">
     <label for="product">Product Name:</label>
     <input type="text" id="product" name="productName" required />
     <button type="submit">Add Product</button>
   </form>
+
+  <script>
+    document.getElementById('product-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const productName = document.getElementById('product').value;
+
+      axios.post('/api/products', { productName })
+        .then((response) => {
+          alert(response.data); // Show success message
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
+    });
+  </script>
 </body>
 </html>
