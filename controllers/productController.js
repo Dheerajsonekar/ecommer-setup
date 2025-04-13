@@ -1,12 +1,16 @@
-exports.getAllProducts = (req, res) => {
-    res.send("Fetching all products");
+// controllers/productController.js
+
+const addProduct = (req, res) => {
+    const { productName } = req.body;
+    res.send(`Product "${productName}" added successfully!`);
 };
 
-exports.getProductById = (req, res) => {
-    const id = req.params.id;
-    res.send(`Fetching product with ID: ${id}`);
+const getProductById = (req, res) => {
+    const productId = req.params.id;
+    res.send(`Fetching product with ID: ${productId}`);
 };
 
-exports.addNewProduct = (req, res) => {
-    res.send("Adding a new product");
+module.exports = {
+    addProduct,
+    getProductById
 };
